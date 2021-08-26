@@ -1,0 +1,533 @@
+USE `prof_cfp`;
+
+-- MY DATA 
+INSERT INTO Event values ('The 3rd Workshop on Advances in IoT Architecture and Systems','https://sites.google.com/view/aiotas2019/','Our immediate aim is to host a strongly interactive gathering of like-minded researchers and some practitioners, who 
+are exploring the above areas, and embedded systems in general, to present their work and discuss potential ways 
+forward');
+
+INSERT INTO EventConference values ('The 3rd Workshop on Advances in IoT Architecture and Systems','Phoenix, Arizona', 'USA', "2019-06-23");
+
+INSERT INTO ActivityHappens values 
+	     ('The 3rd Workshop on Advances in IoT Architecture and Systems','Paper Submission',"2019-04-1"),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Notification of Acceptance',"2019-04-19"),
+	     ('The 3rd Workshop on Advances in IoT Architecture and Systems','Camera-ready',"2019-05-6"),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Workshop Day',"2019-06-23");
+         
+INSERT INTO People values 
+		 ('Ansuman Banerjee', '(Indian Statistical Institute)'),
+         ('Himadri Sekhar Paul', '(TCS Research & Innovation)'),
+         ('Chayan Sarkar', '(TCS Research & Innovation)'),
+         ('Bei Yu', '(Chinese University of Hong Kong)'),
+         ('Hemangee Kapoor', '(IIT Guwahati) '),
+         ('Kishor Chandra', '(Delft University of Technology)'),
+         ('Mingsong Chen','(ECNU China)'),
+         ('Nilanjan Banerjee', '(Motif Politik)'),
+         ('R R Venkatesha Prasad', '(Delft University of Technology)'),
+         ('Smruti R. Sarangi', '(IIT Delhi)'),
+         ('Swaminathan Narayanswami', '(Technical University of Munich)');
+INSERT INTO Organizes values 
+		 ('The 3rd Workshop on Advances in IoT Architecture and Systems','Ansuman Banerjee','Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Himadri Sekhar Paul','Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Chayan Sarkar', 'Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Bei Yu','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Hemangee Kapoor','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Kishor Chandra','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Mingsong Chen','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Nilanjan Banerjee','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','R R Venkatesha Prasad','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Smruti R. Sarangi','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Swaminathan Narayanswami','Program Chair');
+INSERT INTO ResearchTopic values 
+         ('IoT architecture for swarm robotics ','IoT architecture for swarm robotics '),
+         ('Edge computing architecture for IoT ','Edge computing architecture for IoT '),
+         ('5G enabled IoT architecture ','5G enabled IoT architecture '),
+         ('Block-chain enabled IoT architecture','Block-chain enabled IoT architecture');
+INSERT INTO Covers values 
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','IoT architecture for swarm robotics '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Edge computing architecture for IoT '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','5G enabled IoT architecture '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Block-chain enabled IoT architecture');
+         
+-- Other Student Id 217155466
+INSERT INTO event(Name, EventWebLink, CFPText) VALUES ('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium','https://globecom2019.ieee-globecom.org/', 'We are assisting to a big rise of new architectures and technologies enabling next generation networking and internet.
+As a consequence, new challenges and research issues are also arising. Emerging topics of notable importance include
+software defined networking (SDN), network function virtualization (NFV), information-centric networking (ICN), cloud
+and fog computing, multi-access edge computing (MEC), network heterogeneity, scalability, protocols, services and
+applications, security, manageability, dependability, quality of experience for added services, and performance
+predictability. Furthermore, with 5G gaining momentum, many challenging issues are also affecting next-generation
+broadband wireless networks, such as network densification, spectrum expansion, many techniques to enhance
+spectrum efficiency, self-organization, energy efficiency operations, mobile cloud computing, mobility management,
+and indoor localization.');
+
+INSERT INTO People(Name, Affilliation) VALUES('Laurent Ciavaglia', 'Nokia');
+INSERT INTO People(Name, Affilliation) VALUES('Luca Foschini', 'University of Bologna');
+INSERT INTO People(Name, Affilliation) VALUES('Alessio Botta', 'University of Naples');
+
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Laurent Ciavaglia', 'Co-Chair');
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Luca Foschini', 'Co-Chair');
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Alessio Botta', 'Co-Chair');
+
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Paper Submission', DATE('2019-04-15'));
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Acceptance Notification', DATE('2019-06-15'));
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Camera-Ready', DATE('2019-08-15'));
+
+INSERT INTO researchtopic(Name, Area) VALUES('Networking for Cloud and Fog Computing', 'Networking');
+INSERT INTO researchtopic(Name, Area) VALUES('Network Function Virtualization', 'Networking');
+INSERT INTO researchtopic(Name, Area) VALUES('Internet of Things', 'Networking');
+
+INSERT INTO eventconference(EventName, City, Country, Date) VALUES ('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Hawaii', 'USA', DATE('2019-12-09'));
+
+INSERT INTO covers(EventName, TopicName) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Networking for Cloud and Fog Computing');
+INSERT INTO covers(EventName, TopicName) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Network Function Virtualization');
+INSERT INTO covers(EventName, TopicName) VALUES('IEEE Globecom 2019 - Next Generation Networking and Internet Symposium', 'Internet of Things');
+
+-- Other Student ID 216853707
+ INSERT INTO EVENT (CFPText, EventWebLink, Name) 
+VALUES ( "This Conference provides a chance for academic and industry professionals to discuss recent progress in the 
+area of Education and Social Sciences.",
+"https://confintl.org/gcess/",
+"Global Conference on Education and Social Sciences 2019");
+
+INSERT INTO EventConference (city, country, Date, EventName)
+VALUES ("Avid College","Maldives","2019-06-16","Global Conference on Education and Social Sciences 2019");
+
+INSERT INTO people (Affilliation, Name) 
+VALUES ("Association of Scientists, Developers and Faculties", "Long Cai");
+
+INSERT INTO organizes (EventName, PeopleName, Role)
+VALUES ("Global Conference on Education and Social Sciences 2019", "Long Cai", "Program Manager");
+
+INSERT INTO ActivityHappens (ActivityDate, ActivityName, EventName)
+VALUES ("2019-04-30", "Paper Submission", "Global Conference on Education and Social Sciences 2019");
+
+/*
+Other Student -- Shachak Rozeblat 
+Student Number: 216141459
+*/
+INSERT INTO Event VALUES ("Design and Analysis of
+Communication Interfaces for Industry 4.0", "https://tccc.committees.comsoc.org/", "The fourth industrial revolution also referred to as Industry 4.0 aims to integrate advanced manufacturing techniques
+with the Internet-of-Things (IoT) to create an agile digital manufacturing ecosystem. The key idea is to provide a higher
+level of automation by combining technologies such as Industrial IoT (IIoT), cloud computing, machine learning (ML) and
+advanced robotics to enable the creation of interconnected, responsive, intelligent and self-optimizing manufacturing
+processes and systems");
+
+INSERT INTO EventJournal VALUES("Design and Analysis of
+Communication Interfaces for Industry 4.0","IEEE JSAC Special Issue", "IEEE JSAC");
+
+INSERT INTO People VALUES("Syed A. R. Zaid", "University of Leeds, UK");
+
+INSERT INTO Organizes VALUES("Design and Analysis of
+Communication Interfaces for Industry 4.0", "Syed A. R. Zaid", "Guest Editor");
+
+INSERT INTO ActivityHappens VALUES("Design and Analysis of
+Communication Interfaces for Industry 4.0", "Manuscript Due", "2019-07-01");
+
+INSERT INTO ResearchTopic VALUES ("Ultra-reliable Low-Latency Connectivity Interfaces for IIoT Networks", "Design and Analysis");
+
+INSERT INTO Covers VALUES ("Design and Analysis of
+Communication Interfaces for Industry 4.0", "Ultra-reliable Low-Latency Connectivity Interfaces for IIoT Networks");
+
+-- Other Student Id 215353287
+SET @event_name = 'The 15th IEEE International Conference on Green Computing and Communications';
+
+# event
+insert into Event
+VALUES (@event_name,
+        'http://cse.stfx.ca/~cybermatics/2019/greencom',
+        'Computing and communication systems and other IT infrastructures have a growing environmental footprint due to the significant amounts of energy consumption and greenhouse gas emission. To address such problems and create a sustainable environment, new energy models, algorithms, methodologies, platforms, tools, and systems are required to support next-generation computing and communication infrastructures...');
+
+insert into EventConference
+VALUES (@event_name, 'Atlanta', 'USA', '2019-07-14');
+
+# activities
+
+insert into ActivityHappens
+VALUES (@event_name, 'Workshop Proposal Due', '2019-02-01');
+
+insert into ActivityHappens
+VALUES (@event_name, 'Paper Submission Deadline', '2019-04-14');
+
+insert into ActivityHappens
+VALUES (@event_name, 'Authors Notification', '2019-05-12');
+
+insert into ActivityHappens
+VALUES (@event_name, 'Camera-Ready Paper Due', '2019-06-02');
+
+# people and roles
+
+SET @general_chair_role = 'General Chair';
+SET @program_chair_role = 'Program Chair';
+SET @program_vice_chair_role = 'Program Vice Chair';
+SET @workshop_chair_role = 'Workshop Chair';
+SET @publicity_chair_role = 'Publicity Chair';
+SET @web_system_chair_role = 'Web and System Chair';
+
+# general chairs
+
+SET @person1 = 'Victor C. M. Leung';
+
+insert into People
+VALUES (@person1, 'The University of British Columbia, Canada');
+
+insert into Organizes
+VALUES (@event_name, @person1, @general_chair_role);
+
+SET @person2 = 'Arumugam Nallanathan';
+
+insert into People
+VALUES (@person2, 'Queen Mary University of London, UK');
+
+insert into Organizes
+VALUES (@event_name, @person2, @general_chair_role);
+
+SET @person3 = 'Dakai Zhu';
+
+insert into People
+VALUES (@person3, 'University of Texas at San Antonio, USA');
+
+insert into Organizes
+VALUES (@event_name, @person3, @general_chair_role);
+
+# program chairs
+
+SET @person4 = 'Alireza Ejlali';
+
+insert into People
+VALUES (@person4, 'Sharif University of Technology, Iran');
+
+insert into Organizes
+VALUES (@event_name, @person4, @program_chair_role);
+
+SET @person5 = 'Ashwin Ashok';
+
+insert into People
+VALUES (@person5, 'Georgia State University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person5, @program_chair_role);
+
+SET @person6 = 'Changqing Luo';
+
+insert into People
+VALUES (@person6, 'Virginia Commonwealth University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person6, @program_chair_role);
+
+# program vice chairs
+
+SET @person7 = 'Shuhui Yang';
+
+insert into People
+VALUES (@person7, 'Purdue University Northwest, USA');
+
+insert into Organizes
+VALUES (@event_name, @person7, @program_vice_chair_role);
+
+SET @person8 = 'Wei Song';
+
+insert into People
+VALUES (@person8, 'North China University of Technology, China');
+
+insert into Organizes
+VALUES (@event_name, @person8, @program_vice_chair_role);
+
+SET @person9 = 'Ling Tian';
+
+insert into People
+VALUES (@person9, 'University of Electronic Science and Technology of China, China');
+
+insert into Organizes
+VALUES (@event_name, @person9, @program_vice_chair_role);
+
+# workshop chairs
+
+SET @person10 = 'Yanxiao Zhao';
+
+insert into People
+VALUES (@person10, 'Virginia Commonwealth University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person10, @workshop_chair_role);
+
+SET @person11 = 'Weixian Liao';
+
+insert into People
+VALUES (@person11, 'Towson University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person11, @workshop_chair_role);
+
+SET @person12 = 'Xi Li';
+
+insert into People
+VALUES (@person12, 'Beijing University of Posts and Telecommunications, China');
+
+insert into Organizes
+VALUES (@event_name, @person12, @workshop_chair_role);
+
+# publicity chairs
+
+SET @person13 = 'Joe Cecil';
+
+insert into People
+VALUES (@person13, 'Oklahoma State University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person13, @publicity_chair_role);
+
+SET @person14 = 'Yuhong Liu';
+
+insert into People
+VALUES (@person14, 'Santa Clara University, USA');
+
+insert into Organizes
+VALUES (@event_name, @person14, @publicity_chair_role);
+
+SET @person15 = 'M. Ali Dewan';
+
+insert into People
+VALUES (@person15, 'Athabasca University, Canada');
+
+insert into Organizes
+VALUES (@event_name, @person15, @publicity_chair_role);
+
+# web and system chairs
+
+SET @person16 = 'Zihao Jiang';
+
+insert into People
+VALUES (@person16, 'STFX, Canada');
+
+insert into Organizes
+VALUES (@event_name, @person16, @web_system_chair_role);
+
+# topics and covers
+
+SET @area1 = 'Green Computing and Communication Technologies';
+SET @area2 = 'Smart Energy and Smart Grid';
+SET @area3 = 'Green Society Applications';
+
+# first area
+
+SET @topic1a = 'Green infrastructure sustainable design and technologies';
+
+insert into ResearchTopic
+VALUES (@topic1a, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1a);
+
+SET @topic1b = 'Energy- and power-constrained devices and gateways';
+
+insert into ResearchTopic
+VALUES (@topic1b, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1b);
+
+SET @topic1c = 'Ultra-low power systems architectures';
+
+insert into ResearchTopic
+VALUES (@topic1c, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1c);
+
+SET @topic1d = 'Low-power, distributed data processing on sensors';
+
+insert into ResearchTopic
+VALUES (@topic1d, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1d);
+
+SET @topic1e = 'Energy-efficient M2M wired and wireless communications and networking';
+
+insert into ResearchTopic
+VALUES (@topic1e, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1e);
+
+SET @topic1f = 'Optimization and/or analysis in green computing and communications';
+
+insert into ResearchTopic
+VALUES (@topic1f, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1f);
+
+SET @topic1g = 'Green big data, cloud, and data center architecture';
+
+insert into ResearchTopic
+VALUES (@topic1g, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1g);
+
+SET @topic1h = 'Green technologies for 5G (SDN, IoT, and crowdsourcing, etc.)';
+
+insert into ResearchTopic
+VALUES (@topic1h, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1h);
+
+SET @topic1i = 'Energy harvesting communications and networks';
+
+insert into ResearchTopic
+VALUES (@topic1i, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1i);
+
+SET @topic1j = 'Energy efficient networking, communications, and protocols';
+
+insert into ResearchTopic
+VALUES (@topic1j, @area1);
+
+insert into Covers
+VALUES (@event_name, @topic1j);
+
+# second area
+
+SET @topic2a = 'Smart metering infrastructure and technologies';
+
+insert into ResearchTopic
+VALUES (@topic2a, @area2);
+
+insert into Covers
+VALUES (@event_name, @topic2a);
+
+SET @topic2b = 'Large-scale monitoring, control, and demand response';
+
+insert into ResearchTopic
+VALUES (@topic2b, @area2);
+
+insert into Covers
+VALUES (@event_name, @topic2b);
+
+SET @topic2c = 'Advanced data fusion, mining, and modeling in smart grid';
+
+insert into ResearchTopic
+VALUES (@topic2c, @area2);
+
+insert into Covers
+VALUES (@event_name, @topic2c);
+
+SET @topic2d = 'Management and control of distributed energy generation, storage, and consumption';
+
+insert into ResearchTopic
+VALUES (@topic2d, @area2);
+
+insert into Covers
+VALUES (@event_name, @topic2d);
+
+SET @topic2e = 'Advanced smart grid applications: grid-to-vehicle and vehicle-to-grid, Micro-grid';
+
+insert into ResearchTopic
+VALUES (@topic2e, @area2);
+
+insert into Covers
+VALUES (@event_name, @topic2e);
+
+# third area
+
+SET @topic3a = 'Smart sensing systems';
+
+insert into ResearchTopic
+VALUES (@topic3a, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3a);
+
+SET @topic3b = 'Smart city';
+
+insert into ResearchTopic
+VALUES (@topic3b, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3b);
+
+SET @topic3c = 'Green vehicle, green home, green buildings, and green anything';
+
+insert into ResearchTopic
+VALUES (@topic3c, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3c);
+
+SET @topic3d = 'Green industrial automation and control';
+
+insert into ResearchTopic
+VALUES (@topic3d, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3d);
+
+SET @topic3e = 'Intelligent Transport Systems and control';
+
+insert into ResearchTopic
+VALUES (@topic3e, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3e);
+
+SET @topic3f = 'Energy efficiency in aerial/UAV communication networks';
+
+insert into ResearchTopic
+VALUES (@topic3f, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3f);
+
+SET @topic3g = 'Green social networks';
+
+insert into ResearchTopic
+VALUES (@topic3g, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3g);
+
+SET @topic3h = 'Applications of blockchain in energy management and trading';
+
+insert into ResearchTopic
+VALUES (@topic3h, @area3);
+
+insert into Covers
+VALUES (@event_name, @topic3h);
+
+/*
+Name:Michael Presman
+Student ID: 217155466
+*/
+INSERT INTO event(Name, EventWebLink, CFPText) VALUES ('1st International Workshop on Intelligent Systems for the Internet of Things','https://sites.google.com/view/ISIoT2019', 'The Internet of Things is a paradigm that assumes a pervasive presence in the environment of many smart things,
+including sensors, actuators, embedded systems and other similar devices. The development of IoT, however, has
+reached a crossroads, which means that without intelligence, an IoT system will act as an ordinary information transfer
+system. Emerging IoT applications in various fields, including smart city, smart home, smart grid, e-health, intelligent
+transportation systems, etc., require trustworthy networking solutions that are resilient against high mobility, high
+density, disasters, infrastructure failures, cyberattacks, and other disruptions.');
+
+
+INSERT INTO People(Name, Affilliation) VALUES('Dr. Vasos Vassiliou', 'University of Cyprus');
+INSERT INTO People(Name, Affilliation) VALUES('Dr. Stelios Timotheou', 'University of Cyprus');
+INSERT INTO People(Name, Affilliation) VALUES('Dr. Loizos Michael', 'Neapolis University of Paphos');
+
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Dr. Vasos Vassiliou', 'Program Chair');
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Dr. Stelios Timotheou', 'Program Chair');
+INSERT INTO organizes(EventName, PeopleName, Role) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Dr. Loizos Michael', 'Program Chair');
+
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('1st International Workshop on Intelligent Systems for the Internet of Things', 'Paper Submission', DATE('2019-03-18'));
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('1st International Workshop on Intelligent Systems for the Internet of Things', 'Acceptance Notification', DATE('2019-05-05'));
+INSERT INTO activityhappens(EventName, ActivityName, ActivityDate) VALUES ('1st International Workshop on Intelligent Systems for the Internet of Things', 'Camera-Ready', DATE('2019-04-10'));
+
+INSERT INTO researchtopic(Name, Area) VALUES('Computational Intelligence for the IoT', 'Internet of Things');
+INSERT INTO researchtopic(Name, Area) VALUES('Performance evaluation for the IoT', 'Internet of Things');
+INSERT INTO researchtopic(Name, Area) VALUES('Machine Learning in IoT', 'Internet of Things');
+
+INSERT INTO eventconference(EventName, City, Country, Date) VALUES ('1st International Workshop on Intelligent Systems for the Internet of Things', 'Santorini Island', 'Greece', DATE('2019-05-29'));
+
+INSERT INTO covers(EventName, TopicName) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Computational Intelligence for the IoT');
+INSERT INTO covers(EventName, TopicName) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Performance evaluation for the IoT');
+INSERT INTO covers(EventName, TopicName) VALUES('1st International Workshop on Intelligent Systems for the Internet of Things', 'Machine Learning in IoT');

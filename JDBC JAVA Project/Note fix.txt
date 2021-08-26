@@ -1,0 +1,2 @@
+1) if date error in activity then return to main menu then add new cfp then it show old error
+2)reset message box

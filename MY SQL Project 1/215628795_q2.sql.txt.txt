@@ -1,0 +1,51 @@
+USE `prof_cfp`;
+
+INSERT INTO Event values ('The 3rd Workshop on Advances in IoT Architecture and Systems','https://sites.google.com/view/aiotas2019/','Our immediate aim is to host a strongly interactive gathering of like-minded researchers and some practitioners, who 
+are exploring the above areas, and embedded systems in general, to present their work and discuss potential ways 
+forward');
+
+INSERT INTO EventConference values ('The 3rd Workshop on Advances in IoT Architecture and Systems','Phoenix, Arizona', 'USA', "2019-06-23");
+
+INSERT INTO ActivityHappens values 
+	     ('The 3rd Workshop on Advances in IoT Architecture and Systems','Paper Submission',"2019-04-1"),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Notification of Acceptance',"2019-04-19"),
+	     ('The 3rd Workshop on Advances in IoT Architecture and Systems','Camera-ready',"2019-05-6"),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Workshop Day',"2019-06-23");
+         
+INSERT INTO People values 
+		 ('Ansuman Banerjee', '(Indian Statistical Institute)'),
+         ('Himadri Sekhar Paul', '(TCS Research & Innovation)'),
+         ('Chayan Sarkar', '(TCS Research & Innovation)'),
+         ('Bei Yu', '(Chinese University of Hong Kong)'),
+         ('Hemangee Kapoor', '(IIT Guwahati) '),
+         ('Kishor Chandra', '(Delft University of Technology)'),
+         ('Mingsong Chen','(ECNU China)'),
+         ('Nilanjan Banerjee', '(Motif Politik)'),
+         ('R R Venkatesha Prasad', '(Delft University of Technology)'),
+         ('Smruti R. Sarangi', '(IIT Delhi)'),
+         ('Swaminathan Narayanswami', '(Technical University of Munich)');
+INSERT INTO Organizes values 
+		 ('The 3rd Workshop on Advances in IoT Architecture and Systems','Ansuman Banerjee','Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Himadri Sekhar Paul','Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Chayan Sarkar', 'Organization Chairs'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Bei Yu','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Hemangee Kapoor','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Kishor Chandra','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Mingsong Chen','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Nilanjan Banerjee','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','R R Venkatesha Prasad','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Smruti R. Sarangi','Program Chair'),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Swaminathan Narayanswami','Program Chair');
+INSERT INTO ResearchTopic values 
+         ('IoT architecture for swarm robotics ','IoT architecture for swarm robotics '),
+         ('Edge computing architecture for IoT ','Edge computing architecture for IoT '),
+         ('5G enabled IoT architecture ','5G enabled IoT architecture '),
+         ('Block-chain enabled IoT architecture','Block-chain enabled IoT architecture');
+INSERT INTO Covers values 
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','IoT architecture for swarm robotics '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Edge computing architecture for IoT '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','5G enabled IoT architecture '),
+         ('The 3rd Workshop on Advances in IoT Architecture and Systems','Block-chain enabled IoT architecture');
+
+
+		 

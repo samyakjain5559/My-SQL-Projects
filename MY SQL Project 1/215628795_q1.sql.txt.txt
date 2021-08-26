@@ -1,0 +1,149 @@
+DROP DATABASE IF EXISTS `prof_cfp`;
+CREATE DATABASE `prof_cfp`;
+USE `prof_cfp`;
+
+CREATE TABLE Event (
+Name VARCHAR(100) NOT NULL,
+EventWebLink VARCHAR(100) NOT NULL,
+CFPText VARCHAR(1000) NOT NULL,
+PRIMARY KEY (Name)
+);
+
+-- Reference for neseted triggers in MYSQL https://www.mysqltutorial.org/mysql-triggers/mysql-after-delete-trigger/
+
+CREATE TRIGGER count_trigger_insert      
+BEFORE INSERT ON Event 
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count+1
+WHERE event_type = 'Event';
+
+CREATE TRIGGER count_trigger_delete
+AFTER DELETE ON EVENT
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count-1
+WHERE event_type = 'Event' AND cfp_count >= 0;
+
+CREATE TABLE EventConference (
+EventName VARCHAR(100) NOT NULL,
+City VARCHAR(100) NOT NULL,
+Country VARCHAR(100) NOT NULL,
+Date DATE NOT NULL,
+PRIMARY KEY (EventName),
+FOREIGN KEY (EventName) REFERENCES Event(Name)
+);
+
+CREATE TRIGGER count_trigger_insert2
+BEFORE INSERT ON EventConference 
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count+1
+WHERE event_type = 'EventConference'; 
+
+CREATE TRIGGER count_trigger_delete2
+AFTER DELETE ON EventConference
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count-1
+WHERE event_type = 'EventConference' AND cfp_count >= 0;
+
+CREATE TABLE EventJournal (
+EventName VARCHAR(100) NOT NULL,
+JournalName VARCHAR(100) NOT NULL,
+Publisher VARCHAR(100) NOT NULL,
+PRIMARY KEY (EventName),
+FOREIGN KEY (EventName) REFERENCES Event(Name)
+);
+
+CREATE TRIGGER count_trigger_insert3
+BEFORE INSERT ON EventJournal 
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count+1
+WHERE event_type = 'EventJournal';
+
+CREATE TRIGGER count_trigger_delete3
+AFTER DELETE ON EventJournal
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count-1
+WHERE event_type = 'EventJournal'AND cfp_count >= 0;
+
+CREATE TABLE EventBook (
+EventName VARCHAR(100) NOT NULL,
+Publisher VARCHAR(100) NOT NULL,
+PRIMARY KEY (EventName),
+FOREIGN KEY (EventName) REFERENCES Event(Name)
+);
+
+CREATE TRIGGER count_trigger_insert4
+BEFORE INSERT ON EventBook 
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count+1
+WHERE event_type = 'EventBook';
+
+CREATE TRIGGER count_trigger_delete4
+AFTER DELETE ON EventBook
+FOR EACH ROW
+UPDATE CFPCount
+SET cfp_count = cfp_count-1
+WHERE event_type = 'EventBook' AND cfp_count >= 0;
+
+CREATE TABLE ActivityHappens(
+EventName VARCHAR(100) NOT NULL,
+ActivityName VARCHAR(100) NOT NULL,
+ActivityDate DATE NOT NULL,
+PRIMARY KEY (EventName, ActivityName),
+FOREIGN KEY (EventName) REFERENCES Event(Name)
+);
+
+CREATE TABLE ResearchTopic (
+Name VARCHAR(100) NOT NULL,
+Area VARCHAR(100) NOT NULL,
+PRIMARY KEY (Name)
+);
+
+CREATE TABLE People (
+Name VARCHAR(100) NOT NULL,
+Affilliation VARCHAR(100),
+PRIMARY KEY (Name)
+);
+
+CREATE TABLE Covers (
+EventName VARCHAR(100) NOT NULL,
+TopicName VARCHAR(100) NOT NULL,
+PRIMARY KEY (EventName, TopicName),
+FOREIGN KEY (EventName) REFERENCES Event(Name),
+FOREIGN KEY (TopicName) REFERENCES ResearchTopic(Name)
+);
+
+CREATE TABLE Organizes (
+EventName VARCHAR(100) NOT NULL,
+PeopleName VARCHAR(100) NOT NULL,
+Role VARCHAR(100) NOT NULL,
+PRIMARY KEY (EventName, PeopleName),
+FOREIGN KEY (EventName) REFERENCES Event(Name),
+FOREIGN KEY (PeopleName) REFERENCES People(Name)
+);
+
+CREATE TABLE CFPCount (
+  cfp_count smallint default 1 ,
+  event_type VARCHAR(100) DEFAULT 'Event Book',
+  -- unique (event_type),
+  PRIMARY KEY (event_type)   -- as this table depends on individual type of event
+);
+
+-- INSERT INTO CFPCount values (0,'Event');
+INSERT INTO CFPCount values (0,'EventConference');  -- problem if after update/insert command 2 diffrent type have same cfp count
+INSERT INTO CFPCount values (0,'EventJournal');
+INSERT INTO CFPCount values (0,'EventBook');
+
+-- INSERT INTO Event values ('ddkf','kddk','jdaa');
+-- INSERT INTO Event values ('ddkf4','kddk4','jdaa4');
+-- INSERT INTO EventConference values ('ddkf4','kddk5','jdaa5',"2017-06-15");
+
+-- DELETE FROM Event 
+-- WHERE Name = 'ddkf';
+

@@ -1,0 +1,57 @@
+USE `prof_cfp`;
+
+with Joined(month,ename,year) as (Select min(month(A.ActivityDate)), A.EventName, year(A.ActivityDate)
+FROM  (SELECT DISTINCT ActivityHappens.EventName , (ActivityDate)
+      FROM ActivityHappens, EventJournal
+	  WHERE EventJournal.EventName = ActivityHappens.EventName) as A
+Group By A.EventName),
+
+Joined2(month,ename,year) as (Select min(month(A.ActivityDate)), A.EventName, year(A.ActivityDate)
+FROM  (SELECT DISTINCT ActivityHappens.EventName , (ActivityDate)
+      FROM ActivityHappens, EventBook
+	  WHERE EventBook.EventName = ActivityHappens.EventName) as A
+Group By A.EventName)
+
+Select *
+FROM ( 
+(Select 'EventJournal' as Event_Type, concat(MONTHNAME(STR_TO_DATE(month, '%m')), ',', year) AS 'Name of Month,year', count(*)    -- CONVERT TO TEXT MONTH
+from Joined
+GROUP BY month)UNION ALL
+(
+Select 'EventBook' as Event_Type, concat(MONTHNAME(STR_TO_DATE(month, '%m')), ',', year) AS 'Name of Month,year', count(*)
+from Joined2
+GROUP BY month)UNION ALL
+(
+Select 'EventConference' as Event_Type, concat(MONTHNAME(Date), ',', year(Date)) AS 'Name of Month,year', COUNT(*)
+FROM EventConference 
+Group By month(Date)
+)
+) as alljoin;
+
+-- b part
+Select * 
+FROM
+(
+(
+SELECT 'EventConference' as Event_type ,E.EventName, (ActivityDate),A.ActivityName
+FROM EventConference as E ,ActivityHappens as A
+WHERE E.EventName = A.EventName AND A.ActivityDate = (
+      SELECT MIN(ActivityDate)
+      FROM ActivityHappens,EventConference
+      WHERE EventConference.EventName = ActivityHappens.EventName))UNION ALL
+(
+SELECT 'EventBook' as Event_type ,E.EventName, (ActivityDate),A.ActivityName
+FROM EventBook as E ,ActivityHappens as A
+WHERE E.EventName = A.EventName AND A.ActivityDate = (
+      SELECT MIN(ActivityDate)
+      FROM ActivityHappens,EventBook
+      WHERE EventBook.EventName = ActivityHappens.EventName))UNION ALL
+(
+SELECT 'EventJournal' as Event_type ,E.EventName, (ActivityDate),A.ActivityName
+FROM EventJournal as E ,ActivityHappens as A
+WHERE E.EventName = A.EventName AND A.ActivityDate = (
+      SELECT MIN(ActivityDate)
+      FROM ActivityHappens,EventJournal
+      WHERE EventJournal.EventName = ActivityHappens.EventName
+))
+) as joinedall

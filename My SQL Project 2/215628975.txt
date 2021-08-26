@@ -1,0 +1,78 @@
+-- DROP DATABASE IF EXISTS `cfp`;
+-- CREATE DATABASE `cfp`;
+USE `cfp2`;
+-- Code Refrence taken from Lecture 6 slide 15-16
+CREATE TABLE Event (     -- code for varchar length taken from lecture slide 6
+  CFPT_text varchar(30) NOT NULL ,     -- CFPT text could be similar among diffrent events
+  weblink varchar(30),                 -- Same Web link could be shared by diffrent events for diffrent dates
+  E_name varchar(40) NOT NULL, 
+  unique (E_name),
+  PRIMARY KEY (E_name)       -- unique research topic name   
+);
+
+CREATE TABLE Research_topic (     -- code for varchar length taken from lecture slide 6
+  Area varchar(30) NOT NULL ,
+  R_name varchar(15) NOT NULL,
+  unique (R_name),
+  PRIMARY KEY (R_name)      -- unique research topic name 
+);
+
+CREATE TABLE People (
+  Affiliation varchar(30),
+  P_name varchar(15) NOT NULL,
+  unique (P_name),
+  PRIMARY KEY (P_name)
+);
+
+CREATE TABLE Organises (
+  EO_name varchar(30) NOT NULL,   -- primary key of event 
+  PO_name varchar(35) NOT NULL,   -- primary key for people
+  role varchar(35) NOT NULL,
+  PRIMARY KEY (EO_name,PO_name),
+  FOREIGN KEY (EO_name) REFERENCES Event(E_name),
+  FOREIGN KEY (PO_name) REFERENCES People(P_name)
+);
+
+CREATE TABLE Covers (
+  EC_name varchar(30) NOT NULL,   -- primary key of event 
+  RC_name varchar(35) NOT NULL,   -- primary key for research topic
+  PRIMARY KEY (EC_name,RC_name),
+  FOREIGN KEY (EC_name) REFERENCES Event(E_name),
+  FOREIGN KEY (RC_name) REFERENCES Research_topic(R_name)
+);
+-- Weak Entity
+CREATE TABLE Activity (   -- here seeing unique
+  A_date int NOT NULL,
+  Event_name varchar(15) NOT NULL,
+  Activity_name varchar(30) NOT NULL ,
+  EA_name varchar(40) NOT NULL,
+  unique (Event_name,Activity_name),             -- event name and activity name in a event should be diffrent as it could lead to misunderstanding
+  PRIMARY KEY (EA_name),
+  FOREIGN KEY (EA_name) REFERENCES Event(E_name)
+);
+-- Sub classes using option 8A
+CREATE TABLE Event_conference (
+  EC_date int NOT NULL,
+  EC_city varchar(15) NOT NULL,
+  EC_country varchar(30) NOT NULL ,
+  EV_name varchar(40) NOT NULL,
+  PRIMARY KEY (EV_name),
+  FOREIGN KEY (EV_name) REFERENCES Event(E_name)
+);
+
+CREATE TABLE Event_journal (  
+  EJ_journal_name varchar(30) NOT NULL,
+  EJ_publisher varchar(30) NOT NULL ,
+  EJ_name varchar(40) NOT NULL,
+  unique (EJ_journal_name),        -- Journal name is unique as if 2 journal have name then its not possible to distinquish between them
+  PRIMARY KEY (EJ_name),
+  FOREIGN KEY (EJ_name) REFERENCES Event(E_name)
+);
+
+CREATE TABLE Event_book (  
+  EB_publisher varchar(30) NOT NULL ,   -- mutiple publisher could publish same book so not unique
+  EB_name varchar(40) NOT NULL,
+  PRIMARY KEY (EB_name),
+  FOREIGN KEY (EB_name) REFERENCES Event(E_name)
+);
+
